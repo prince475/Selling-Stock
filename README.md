@@ -24,9 +24,11 @@ Note: Stock must be bought before being sold
 
 ```txt
     To maximize profit it is important that the cost is lowered down, so minimize cost price and then maximize selling price.
+
     At every step, we will keep track of the minimum buying price of stock encountered so far. Then if the current price of 
-    the stock is less than the previous buying price, we will update the buy price, else if the current price of stock is greater
-    than the previous buying price, we can sell at this price ot get some profit.
+    the stock is less than the previous buying price, we will update the buy price, else if the current price of stock is
+    greater than the previous buying price, we can sell at this price ot get some profit.
+
     After iterating over the entire array, return the maximum profit.
 ```
 ### Steps to solve the problem
