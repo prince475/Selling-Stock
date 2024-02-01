@@ -39,3 +39,35 @@ Note: Stock must be bought before being sold
   - If the current price is smaller than buy price, then buy on this ith day.
   - If the current price is greater than buy price, then make profit from it and maximize the max_profit
 - Finally, return the max_profit.
+
+```js
+    /**
+     * Calculates the maximum profit that can be obtained by buying and selling stocks.
+     * @param {number[]} prices - Array representing the prices of stocks on different days.
+     * @returns {number} - Maximum profit achievable.
+     */
+    
+    function maxProfit(prices) {
+        if (prices.length < 2) {
+            return 0; // Edge Case: Cannot make a profit with less than two prices.
+        }
+   
+        // Initialize variables
+        let buy = prices[0]; // The initial buying price
+        let max_profit = 0; // The maximum profit obtained
+   
+        // Iterate through the prices array starting from the second element
+        for (let i = 1; i < prices.length; i++) {
+            // Update buying price if the current price is lower
+            if (buy > prices[i]) {
+                buy = prices[i];
+            }
+            // Update maximum profit if selling at the current price results in a higher profit
+            else if (prices[i] - buy > max_profit) {
+                max_profit = prices[i] - buy;
+            }
+        }
+   
+        return max_profit
+    }
+```
