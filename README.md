@@ -72,8 +72,8 @@ Note: Stock must be bought before being sold
     }
 ```
 
-Time Complexity: O(2^n), where n is the size of input array prices[]
-Auxiliary Space: O(N)
+- Time Complexity: O(2^n), where n is the size of input array prices[]
+- Auxiliary Space: O(N)
 
 ### Implementation using Dynamic Programming
 
@@ -127,6 +127,6 @@ Auxiliary Space: O(N)
     console.log(ans);
 ```
 
-Time Complexity: O(N), where N is the length of the given array.
-Auxiliary Space: O(N)
+- Time Complexity: O(N), where N is the length of the given array.
+- Auxiliary Space: O(N)
 
