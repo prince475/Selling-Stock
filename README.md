@@ -71,3 +71,62 @@ Note: Stock must be bought before being sold
         return max_profit
     }
 ```
+
+Time Complexity: O(2^n), where n is the size of input array prices[]
+Auxiliary Space: O(N)
+
+### Implementation using Dynamic Programming
+
+```txt
+    The recursive approach can be optimized by storing the states in a 2D dp array of size NX2.
+    Here, dp[idx][0] will store the answer of maxProfit[idx, false] and dp[idx][1] will store the
+    the answer of maxProfit[idx, true].
+```
+
+```js
+    /**
+     * Calculates the maximum profit that can be obtained by buying and selling stocks using dynamic programming.
+     * @param {number[]} prices - Array representing the prices of stocks on different days.
+     * @returns {number} - Maximum profit achievable.
+     */
+
+    function maxProfitDP(prices) {
+        //Edge case: Cannot make a profit with less than two prices
+        if (prices.length < 2) {
+            return 0;
+        }
+
+        const n = prices.length;
+        // 2D DP array to store max profit with 0 and 1 stocks
+        const dp = new Array(n).fill(null).map(() => [0, 0]);
+
+        // Initialize variables
+        let buy = -prices[0];
+        let sell = 0;
+
+        // Loop through prices to calculate max profit at each day
+        for (let i = 1; i < n; i++) {
+            // Update but to be the maximum between the previous buy and the profit from buying at prices[i]
+            buy = Math.max(buy, -prices[i]);
+            
+            // Update sell to be the maximum between the previous sell and the profit form selling at prices[i]
+            sell = Math.max(sell, buy + prices[i]);
+        }
+
+        // Return the maximum profit calculated from the last day
+        return Math.max(buy, sell);
+    }
+
+    // Given Prices
+    const prices = [7, 1, 5, 3, 6, 4];
+    
+    // Function Call
+    const ans = max.ProfitDP(prices);
+
+    // Print answer
+    console.log(ans);
+```
+
+Time Complexity: O(N), where N is the length of the given array.
+Auxiliary Space: O(N)
+
